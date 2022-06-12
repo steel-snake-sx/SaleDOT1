@@ -1,0 +1,64 @@
+﻿<Window x:Class="SaleDot.Views.product.InventoryValueReport"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        mc:Ignorable="d"
+        Title="Отчет о журнале инвентаризации" WindowState="Maximized" Height="Auto" Width="Auto"
+        >
+    <Grid>
+        <Label Content="Поиск" HorizontalAlignment="Left" Margin="11,12,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="query_tb" TabIndex="1" Text="" HorizontalAlignment="Left" Height="25" Margin="64,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <ComboBox x:Name="searchType_cb" HorizontalAlignment="Left" Margin="326,4,0,0" VerticalAlignment="Top" Width="145" Height="33">
+            <ComboBoxItem Selector.IsSelected="True" Content="Товары" Tag="Product"/>
+            <ComboBoxItem Content="Все" Tag="All"/>
+        </ComboBox>
+        <Button Click="Btn_Search_Transactions_Click" Content="Поиск" HorizontalAlignment="Left" Margin="554,16,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <telerik:RadGridView
+            x:Name="dg"
+            Margin="0,60,0,0"
+            ShowSearchPanel="True"
+            ShowColumnFooters="True"
+            AutoGenerateColumns="False"
+            telerik:StyleManager.Theme="Fluent"
+            >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding id}" Background="#FFD6D6D6">
+                    <telerik:GridViewDataColumn.AggregateFunctions>
+                        <telerik:CountFunction Caption="Всего: " />
+                    </telerik:GridViewDataColumn.AggregateFunctions>
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="Имя" DataMemberBinding="{Binding name}"/>
+                <telerik:GridViewDataColumn Header="Штрих-код" DataMemberBinding="{Binding barcode}"/>
+                <telerik:GridViewDataColumn Header="Категория" DataMemberBinding="{Binding category}"/>
+                <telerik:GridViewDataColumn Header="Количество" DataMemberBinding="{Binding quantity}" Background="#FFC8E5FB"/>
+                <telerik:GridViewDataColumn Header="Цена '₽'" DataMemberBinding="{Binding purchaseprice}" Background="#FFD8B7E2" />
+                <telerik:GridViewDataColumn Header="Текущая стоимость '₽'" DataMemberBinding="{Binding carrycost}"/>
+                <telerik:GridViewDataColumn Header="Цена закупки '₽'" DataMemberBinding="{Binding purchasevalue}" Background="#FFD28BE8">
+                    <telerik:GridViewDataColumn.AggregateFunctions>
+                        <telerik:SumFunction Caption="Всего '₽': " />
+                    </telerik:GridViewDataColumn.AggregateFunctions>
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="Цена с доставкой '₽'" DataMemberBinding="{Binding purchasevaluewcarrycost}">
+                    <telerik:GridViewDataColumn.AggregateFunctions>
+                        <telerik:SumFunction Caption="Всего '₽': " />
+                    </telerik:GridViewDataColumn.AggregateFunctions>
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="Сумма продажи '₽'" DataMemberBinding="{Binding saleprice}" Background="#FFBAD3BC"/>
+                <telerik:GridViewDataColumn Header="Скидка '₽'" DataMemberBinding="{Binding discount}"/>
+                <telerik:GridViewDataColumn Header="Всего '₽'" DataMemberBinding="{Binding salevalue}" Background="#FF8FDE95">
+                    <telerik:GridViewDataColumn.AggregateFunctions>
+                        <telerik:SumFunction Caption="Всего '₽': " />
+                    </telerik:GridViewDataColumn.AggregateFunctions>
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="Цена со скидкой  '₽'" DataMemberBinding="{Binding salevaluewdiscount}">
+                    <telerik:GridViewDataColumn.AggregateFunctions>
+                        <telerik:SumFunction Caption="Всего  '₽': " />
+                    </telerik:GridViewDataColumn.AggregateFunctions>
+                </telerik:GridViewDataColumn>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </Grid>
+</Window>

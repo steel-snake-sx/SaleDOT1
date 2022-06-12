@@ -1,0 +1,23 @@
+﻿<Window x:Class="SaleDot.Views.finance.cashclosing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SaleDot.Views.finance" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        mc:Ignorable="d"
+        Title="Отчет о кассе">
+    <Grid>
+        <telerik:RadGridView x:Name="dg" Margin="0,0,0,0" ShowSearchPanel="True"
+                     AutoGenerateColumns="False" telerik:StyleManager.Theme="Fluent" >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding id}" />
+                <telerik:GridViewDataColumn Header="Дата" DataMemberBinding="{Binding date}" />
+                <telerik:GridViewDataColumn Header="Пользователь" DataMemberBinding="{Binding username}" />
+                <telerik:GridViewDataColumn Header="Продажа '₽'" DataMemberBinding="{Binding sale}" />
+                <telerik:GridViewDataColumn Header="Расходы '₽'" DataMemberBinding="{Binding expence}" />
+                <telerik:GridViewDataColumn Header="Остаток баланса '₽'" DataMemberBinding="{Binding closingbalance}" />
+                <telerik:GridViewDataColumn Header="Заметка" DataMemberBinding="{Binding note}" />
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </Grid>
+</Window>

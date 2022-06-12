@@ -1,0 +1,65 @@
+﻿<Window x:Class="SaleDot.Views.product.ProductList"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        mc:Ignorable="d"
+        Title="Товары" WindowState="Maximized" Height="Auto" Width="Auto" 
+        >
+    <Grid>
+        <Label Content="Поиск" HorizontalAlignment="Left" Margin="11,12,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="query_tb" TabIndex="1" Text="" HorizontalAlignment="Left" Height="25" Margin="64,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <ComboBox x:Name="searchType_cb" HorizontalAlignment="Left" Margin="326,4,0,0" VerticalAlignment="Top" Width="145" Height="33">
+            <ComboBoxItem Selector.IsSelected="True" Content="Товары" Tag="Product"/>
+            <ComboBoxItem Content="Все" Tag="All"/>
+        </ComboBox>
+        <Button Click="Btn_Search_Transactions_Click" Content="Поиск" HorizontalAlignment="Left" Margin="554,16,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <telerik:RadGridView
+            x:Name="dg"
+            Margin="0,60,0,0"
+            EnableColumnVirtualization="True"
+            EnableRowVirtualization="True"
+            RowEditEnded="dg_roweditended"
+            ShowSearchPanel="True"
+            ShowColumnFooters="True"
+            AutoGenerateColumns="False"
+            CanUserInsertRows="False"
+            telerik:StyleManager.Theme="Fluent"
+            >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding id}" Background="#FFD6D6D6">
+                    <telerik:GridViewDataColumn.AggregateFunctions>
+                        <telerik:CountFunction Caption="Всего  '₽': " />
+                    </telerik:GridViewDataColumn.AggregateFunctions>
+                </telerik:GridViewDataColumn>
+                
+                <telerik:GridViewDataColumn Header="Имя" DataMemberBinding="{Binding name}"/>
+                <telerik:GridViewDataColumn Header="Штрих-код" DataMemberBinding="{Binding barcode}"/>
+                <telerik:GridViewDataColumn Header="Категории" DataMemberBinding="{Binding category}"/>
+                <telerik:GridViewDataColumn Header="Количество" DataMemberBinding="{Binding quantity}"/>
+                <telerik:GridViewDataColumn Header="В продаже" DataMemberBinding="{Binding saleactive}"/>
+                <telerik:GridViewDataColumn Header="В закупке" DataMemberBinding="{Binding purchaseactive}"/>
+                <telerik:GridViewDataColumn Header="Цена закупки  '₽'" DataMemberBinding="{Binding purchaseprice}"/>
+                <telerik:GridViewDataColumn Header="Текущая стоимость  '₽'" DataMemberBinding="{Binding carrycost}"/>
+                <telerik:GridViewDataColumn Header="Цена  '₽'" DataMemberBinding="{Binding saleprice}"/>
+                <telerik:GridViewDataColumn Header="Скидка  '₽'" DataMemberBinding="{Binding discount}"/>
+                <telerik:GridViewColumn Header="Редактировать" >
+                    <telerik:GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <telerik:RadButton Click="edit">Редактировать</telerik:RadButton>
+                        </DataTemplate>
+                    </telerik:GridViewColumn.CellTemplate>
+                </telerik:GridViewColumn>
+                <telerik:GridViewColumn Header="Отчет" >
+                    <telerik:GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <telerik:RadButton Click="inventorylog">Журнал</telerik:RadButton>
+                        </DataTemplate>
+                    </telerik:GridViewColumn.CellTemplate>
+                </telerik:GridViewColumn>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </Grid>
+</Window>
