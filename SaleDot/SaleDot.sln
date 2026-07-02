@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleDot", "SaleDot\SaleDot.csproj", "{CE563FF3-6B4C-4702-BF61-32547E76679E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleDot POS", "SaleDot\SaleDot.POS.csproj", "{CE563FF3-6B4C-4702-BF61-32547E76679E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -48,6 +48,7 @@ Generated_Code/
 *.tmp
 *.tmp_proj
 *.log
+msbuild*.log
 *.cache
 *.pidb
 *.svclog

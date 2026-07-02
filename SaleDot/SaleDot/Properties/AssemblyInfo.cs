@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("saledot")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("SaleDot POS")]
+[assembly: AssemblyDescription("Desktop point of sale and inventory management system")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("saledot")]
+[assembly: AssemblyProduct("SaleDot POS")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
