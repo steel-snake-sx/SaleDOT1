@@ -1,0 +1,71 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x86/
+x64/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Ll]og/
+[Ll]ogs/
+
+# .NET / NuGet
+packages/
+*.nupkg
+*.snupkg
+project.assets.json
+project.nuget.cache
+*.csproj.nuget.*
+
+# Generated files
+Generated_Code/
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.cache
+*.pidb
+*.svclog
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Local application settings
+SaleDot/SaleDot/data/databaseconnection.json
+SaleDot/SaleDot/bin/
+SaleDot/SaleDot/obj/
+
+# Visual Studio backup/migration artifacts
+SaleDot/SaleDot_Backup_*/
+SaleDot/MigrationBackup/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
